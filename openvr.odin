@@ -6,55 +6,6 @@ package openvr
 //
 //=============================================================================
 
-// #ifndef __OPENVR_API_FLAT_H__
-// #define __OPENVR_API_FLAT_H__
-// #if defined( _WIN32 ) || defined( __clang__ )
-// #pragma once
-// #endif
-
-// #ifdef __cplusplus
-// #define EXTERN_C extern "C"
-// #else
-// #define EXTERN_C
-// #endif
-
-// #if defined( _WIN32 )
-// #define OPENVR_FNTABLE_CALLTYPE __stdcall
-// #else
-// #define OPENVR_FNTABLE_CALLTYPE 
-// #endif
-
-// // OPENVR API export macro
-// #if defined( _WIN32 ) && !defined( _X360 )
-// 	#if defined( OPENVR_API_EXPORTS )
-// 	#define S_API EXTERN_C __declspec( dllexport )
-// 	#elif defined( OPENVR_API_NODLL )
-// 	#define S_API EXTERN_C
-// 	#else
-// 	#define S_API extern "C" __declspec( dllimport ) 
-// 	#endif // OPENVR_API_EXPORTS
-// #elif defined( __GNUC__ )
-// 	#if defined( OPENVR_API_EXPORTS )
-// 	#define S_API EXTERN_C __attribute__ ((visibility("default")))
-// 	#else
-// 	#define S_API EXTERN_C
-// 	#endif // OPENVR_API_EXPORTS
-// #else // !WIN32
-// 	#if defined( OPENVR_API_EXPORTS )
-// 	#define S_API EXTERN_C
-// 	#else
-// 	#define S_API EXTERN_C
-// 	#endif // OPENVR_API_EXPORTS
-// #endif
-
-// #include <stdint.h>
-
-// #if defined( __WIN32 )
-// typedef char bool;
-// #else
-// #include <stdbool.h>
-// #endif
-
 PropertyContainerHandle_t :: u64;
 PropertyTypeTag_t :: u32;
 VRActionHandle_t :: u64;
@@ -2052,9 +2003,9 @@ RenderModel_Vertex_t :: struct #packed
 	rfTextureCoord: [2]f32, //float[2]
 } 
 
+// TODO
 // #if defined(__linux__) || defined(__APPLE__)
 // #pragma pack( push, 4 )
-// #endif
 RenderModel_TextureMap_t :: struct
 {
 	unWidth: u16,
@@ -2063,12 +2014,9 @@ RenderModel_TextureMap_t :: struct
 	format: EVRRenderModelTextureFormat,
 } 
 
-// #if defined(__linux__) || defined(__APPLE__)
-// #pragma pack( pop )
-// #endif
+// TODO
 // #if defined(__linux__) || defined(__APPLE__)
 // #pragma pack( push, 4 )
-// #endif
 RenderModel_t :: struct
 {
 	rVertexData: ^RenderModel_Vertex_t, // const struct vr::RenderModel_Vertex_t *
@@ -2078,9 +2026,6 @@ RenderModel_t :: struct
 	diffuseTextureId: TextureID_t,
 } 
 
-// #if defined(__linux__) || defined(__APPLE__)
-// #pragma pack( pop )
-// #endif
 RenderModel_ControllerMode_State_t :: struct
 {
 	bScrollWheelVisible: bool,
@@ -2224,11 +2169,11 @@ VREvent_Data_t :: struct #raw_union
 	spatialAnchor: VREvent_SpatialAnchor_t,
 } 
 
+// TODO
 // #if defined(__linux__) || defined(__APPLE__) 
 // // This structure was originally defined mis-packed on Linux, preserved for 
 // // compatibility. 
 // #pragma pack( push, 4 )
-// #endif
 
 /** An event posted by the server to all running applications */
 VREvent_t :: struct
@@ -2239,11 +2184,6 @@ VREvent_t :: struct
 	// event data must be the end of the struct as its size is variable
 	data: VREvent_Data_t,
 }
-
-// #if defined(__linux__) || defined(__APPLE__) 
-// #pragma pack( pop )
-// #endif
-
 
 VROverlayIntersectionMaskPrimitive_Data_t :: struct #raw_union
 {
